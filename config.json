@@ -1,0 +1,33 @@
+{
+  "workload": {
+    "workload_file": "../test/{dbname}_test.sql",
+    "output_file": "./feature/{dbname}_workload_features.json"
+  },
+  "database": {
+    "host": "/path/to/postgresql/run",
+    "port": 5432,
+    "user": "postgres",
+    "password": "",
+    "dbname": "TPCDS"
+  },
+  "index_selector": {
+    "index_storage_proportion": 0.6,
+    "workload_summary": "./feature/{dbname}_workload_summary.txt",
+    "candidate_file": "./candidate/{dbname}_candidate_indexes.json"
+  },
+  "index_combination": {
+    "result_file": "./results/{dbname}_index_combination.json",
+    "max_iterations": 3,
+    "max_llm_calls": 16,
+    "local_candidate_limit": 12,
+    "total_tuning_time_seconds": 0,
+    "statement_timeout_seconds": 600,
+    "max_physical_trials": 3,
+    "max_additions": 2,
+    "max_removals": 2  },
+  "llm": {
+    "api_key": "xxxx",
+    "base_url": "xxxxx",
+    "model": "gpt-4.1"
+  }
+}
