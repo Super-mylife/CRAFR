@@ -1,6 +1,6 @@
-# CRAFT
+# CRAFR
 
-We propose CRAFT, an index advisor that selects a storage-bounded index configuration with a large language model and real PostgreSQL feedback.
+We propose CRAFR, an index advisor that selects a storage-bounded index configuration with a large language model and real PostgreSQL feedback.
 
 ![overview](figure/system_overview.png)
 
@@ -24,8 +24,8 @@ Step 2 : Install the HypoPG extension according to https://github.com/HypoPG/hyp
 Step 3 : Create the virtual environment with Python = 3.9 and activate it.
 
 ```
-conda create -n craft python=3.9
-conda activate craft
+conda create -n crafr python=3.9
+conda activate crafr
 ```
 
 Step 4 : Install the required packages.
@@ -36,7 +36,7 @@ pip install psycopg2-binary sqlparse sql-metadata openai
 
 ## Supported Benchmarks
 
-Owing to the characteristics of large language models, CRAFT can theoretically support various workload compositions and database schemas. Based on the experimental attempts, we use OLAP workloads where all SQL statements can be obtained, and take the ``workload.sql`` file path as input information.
+Owing to the characteristics of large language models, CRAFR can theoretically support various workload compositions and database schemas. Based on the experimental attempts, we use OLAP workloads where all SQL statements can be obtained, and take the ``workload.sql`` file path as input information.
 
 - SSB (refer to https://github.com/lemire/StarSchemaBenchmark)
 - TPC-H (refer to https://github.com/gregrahn/tpch-kit)
@@ -44,7 +44,7 @@ Owing to the characteristics of large language models, CRAFT can theoretically s
 - DSB (refer to https://github.com/microsoft/dsb)
 - JOB (refer to https://github.com/gregrahn/join-order-benchmark)
 
-## Using CRAFT
+## Using CRAFR
 
 1. Modify the relevant configuration `config.json`.
 
@@ -85,7 +85,7 @@ Owing to the characteristics of large language models, CRAFT can theoretically s
    }
    ```
 
-2. Run CRAFT from the `CRAFR` directory. `all` runs Stage 1, Stage 2, Stage 3, then the timing: one discarded warm-up, one baseline, build the final indexes, and measure their latency.
+2. Run CRAFR from this directory. `all` runs Stage 1, Stage 2, Stage 3, then the timing: one discarded warm-up, one baseline, build the final indexes, and measure their latency.
 
    ```
    cd CRAFR
